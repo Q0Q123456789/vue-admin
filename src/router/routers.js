@@ -3,7 +3,7 @@ import layout from '@/layout'
 const route = [
   {
     path: '/',
-    name: '_home',
+    name: '',
     // redirect: '/',
     component: layout,
     children: [
