@@ -5,7 +5,7 @@
         <Header></Header>
       </el-header>
       <el-container>
-        <el-aside width="10%">Aside</el-aside>
+        <el-aside width="10%"><Menu></Menu></el-aside>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -15,29 +15,31 @@
 </template>
 <script>
 import Header from './header'
+import Menu from './menu'
 export default {
   data () {
     return {}
   },
   components: {
-    Header
+    Header,
+    Menu
   }
 }
 </script>
 <style>
 .el-header,
 .el-footer {
-  background-color: #b3c0d1;
+  background-color: #FFFFFF;
   color: #333;
   text-align: center;
   line-height: 60px;
 }
 
 .el-aside {
-  background-color: #d3dce6;
+  background-color: #FFFFFF;
   color: #333;
   text-align: center;
-  line-height: 200px;
+  /* line-height: 200px; */
   float: left;
   width: 10%;
 }

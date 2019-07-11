@@ -10,7 +10,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-extra-semi': 2, // 禁止多余的冒号
+    'no-extra-semi': 1, // 禁止多余的冒号
     'no-invalid-this': 2, // 禁止无效的this，只能用在构造器，类，对象字面量
     'linebreak-style': [1, 'windows'], // 换行风格
     'no-multi-spaces': 1, // 不能用多余的空格
