@@ -1,6 +1,6 @@
 import layout from '@/layout'
 
-export const route = [
+export const constantRoutes = [
   {
     path: '/',
     name: '首页',

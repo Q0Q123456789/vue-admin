@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import route from './routers'
+import { constantRoutes } from './routers'
 
 Vue.use(Router)
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: route
+  routes: constantRoutes
 })
 
 const router = createRouter()
