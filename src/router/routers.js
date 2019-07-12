@@ -1,24 +1,43 @@
 import layout from '@/layout'
 
-const route = [
+export const route = [
   {
     path: '/',
-    name: '',
-    // redirect: '/',
+    name: '首页',
+    redirect: '/home',
     component: layout,
     children: [
       {
-        path: '/',
-        name: 'home_page',
+        path: '/home',
+        name: '',
         meta: {
           title: '首页',
           husband: '1',
           name: '1-1'
         },
-        component: () => import('@/components/HelloWorld.vue')
+        component: () => import('@/views/Home')
+      }
+    ]
+  },
+  {
+    path: '/',
+    name: '此页',
+    redirect: '/about',
+    component: layout,
+    children: [
+      {
+        path: '/about',
+        name: '',
+        meta: {
+          title: '',
+          husband: '1',
+          name: '1-1'
+        },
+        component: () => import('@/views/About')
       }
     ]
   }
 ]
-
-export default route
+export const asyncRoutes = [
+  { path: '*', redirect: '/404', hidden: true }
+]

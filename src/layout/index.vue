@@ -2,12 +2,12 @@
   <div>
     <el-container>
       <el-header>
-        <Header></Header>
+        <Header />
       </el-header>
       <el-container>
-        <el-aside width="10%"><Menu></Menu></el-aside>
+        <el-aside width="10%"><Sidebar-item /></el-aside>
         <el-main>
-          <router-view></router-view>
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
@@ -15,14 +15,14 @@
 </template>
 <script>
 import Header from './header'
-import Menu from './menu'
+import SidebarItem from './SidebarItem'
 export default {
-  data () {
-    return {}
-  },
   components: {
     Header,
-    Menu
+    SidebarItem
+  },
+  data() {
+    return {}
   }
 }
 </script>

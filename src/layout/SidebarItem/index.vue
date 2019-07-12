@@ -4,36 +4,43 @@
       <el-menu
         default-active="1-1-1"
         class="el-menu-vertical-demo"
+        :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
-        :collapse="isCollapse"
       >
-      <Sidebar-item></Sidebar-item>
+        <Sidebar-item />
       </el-menu>
     </el-scrollbar>
   </div>
 </template>
 <script>
 import SidebarItem from './SidebarItem'
+import { mapGetters } from 'vuex'
 export default {
-  name: 'menu',
-  data () {
+  name: 'MenuPage',
+  components: {
+    SidebarItem
+  },
+  data() {
     return {
       isCollapse: false
     }
   },
-  components: {
-    SidebarItem
+  computed: {
+    ...mapGetters([
+      'permission_routes'
+    ])
   },
-  computed: {},
   watch: {},
-  created () {},
-  mounted () {},
+  created() {
+    console.log(this.permission_routes)
+  },
+  mounted() { console.log(this.permission_routes) },
   methods: {
-    handleOpen (key, keyPath) {
+    handleOpen(key, keyPath) {
       console.log(key, keyPath)
     },
-    handleClose (key, keyPath) {
+    handleClose(key, keyPath) {
       console.log(key, keyPath)
     }
   }
