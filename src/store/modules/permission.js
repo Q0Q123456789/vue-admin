@@ -1,4 +1,4 @@
-import { constantRoutes, asyncRoutes } from '@/router/routers'
+import { asyncRoutes, constantRoutes } from '@/router/routers'
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles
@@ -37,15 +37,6 @@ const state = {
   routes: [],
   addRoutes: []
 }
-console.log(constantRoutes)
-console.log(asyncRoutes)
-const mutations = {
-  SET_ROUTES: (state, routes) => {
-    state.addRoutes = routes
-    state.routes = constantRoutes.concat(routes)
-    console.log(constantRoutes.concat(routes))
-  }
-}
 
 const actions = {
   generateRoutes({ commit }, roles) {
@@ -62,6 +53,13 @@ const actions = {
   }
 }
 
+const mutations = {
+  SET_ROUTES: (state, routes) => {
+    state.addRoutes = routes
+    state.routes = constantRoutes.concat(routes)
+  }
+}
+console.log(state)
 export default {
   namespaced: true,
   state,

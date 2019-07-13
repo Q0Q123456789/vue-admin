@@ -33,8 +33,6 @@ export default {
   },
   watch: {},
   created() {
-    console.log(this.$router)
-    console.log(this.$route)
     console.log(this.permission_routes)
   },
   mounted() {},
