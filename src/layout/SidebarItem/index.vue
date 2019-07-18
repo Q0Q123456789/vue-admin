@@ -1,14 +1,20 @@
 <template>
   <div class="menu">
-    <el-scrollbar height="100%">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        default-active="1-1-1"
+        :default-active="activeMenu"
         class="el-menu-vertical-demo"
         :collapse="isCollapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuText"
+        :active-text-color="variables.menuActiveText"
+        :collapse-transition="false"
+        :unique-opened="false"
+        mode="vertical"
         @open="handleOpen"
         @close="handleClose"
       >
-        <Sidebar-item />
+        <Sidebar-item v-for="(item, index) in permission_routes" :key="index" :item="item" :base-path="item.path" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -16,6 +22,7 @@
 <script>
 import SidebarItem from './SidebarItem'
 import { mapGetters } from 'vuex'
+import variables from '@/style/variables.scss'
 export default {
   name: 'MenuPage',
   components: {
@@ -29,7 +36,16 @@ export default {
   computed: {
     ...mapGetters([
       'permission_routes'
-    ])
+    ]),
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    }
   },
   watch: {},
   created() {
@@ -42,6 +58,9 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath)
+    },
+    variables() {
+      return variables
     }
   }
 }

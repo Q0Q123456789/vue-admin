@@ -2,14 +2,12 @@ import layout from '@/layout'
 
 export const constantRoutes = [
   {
-    path: '/',
-    name: '首页',
+    path: '',
     redirect: '/home',
     component: layout,
     children: [
       {
         path: '/home',
-        name: '',
         meta: {
           title: '首页',
           husband: '1',
@@ -20,20 +18,38 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/',
-    name: '此页',
-    redirect: '/about',
+    path: '/about',
+    redirect: '/about/about_page_a',
     component: layout,
+    name: 'about',
+    meta: {
+      title: 'about',
+      icon: 'about'
+    },
     children: [
       {
-        path: '/about',
+        path: 'about_page_a',
+        component: () => import('@/views/About/index'),
         name: '',
         meta: {
-          title: '',
-          husband: '1',
-          name: '1-1'
-        },
-        component: () => import('@/views/About')
+          title: '此页'
+        }
+      },
+      {
+        path: 'about_page_b',
+        component: () => import('@/views/About/index'),
+        name: '',
+        meta: {
+          title: '此页'
+        }
+      },
+      {
+        path: 'about_page_c',
+        component: () => import('@/views/About/index'),
+        name: '',
+        meta: {
+          title: '此页'
+        }
       }
     ]
   }

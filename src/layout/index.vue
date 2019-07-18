@@ -1,16 +1,18 @@
 <template>
   <div>
-    <el-container>
+    <div class="app-wrapper openSidebar">
       <el-header>
         <Header />
       </el-header>
       <el-container>
-        <el-aside width="10%"><Sidebar-item /></el-aside>
-        <el-main>
-          <router-view />
+        <Sidebar-item class="sidebar-container" />
+        <el-main class=" hasTagsView main-container ">
+          <div class="app-main">
+            <router-view />
+          </div>
         </el-main>
       </el-container>
-    </el-container>
+    </div>
   </div>
 </template>
 <script>
@@ -33,37 +35,5 @@ export default {
   color: #333;
   text-align: center;
   line-height: 60px;
-}
-
-.el-aside {
-  background-color: #FFFFFF;
-  color: #333;
-  text-align: center;
-  /* line-height: 200px; */
-  float: left;
-  width: 10%;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  float: left;
-  width: 90%;
-}
-.el-container {
-  overflow: hidden;
-}
-body > .el-container {
-  margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
 }
 </style>
